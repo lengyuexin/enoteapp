@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>XHR2.0</title>
+    <style>
+        .box {
+            margin: 100px auto;
+            width: 600px;
+        }
+
+ 
+    </style>
+    <script src="https://cdn.bootcss.com/axios/0.19.0/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="box">
+    
+        <form id="form">
+            <p><input type="file" name="file" multiple></p>
+            <p> <input id="proName" name="proName" value="pro1" /></p>
+            <p><input type="button" value="上传" id="btn"></p>
+        </form>
+    </div>
+    <script>
+        var form = document.getElementById('form'); //获取表单
+        var btn = document.getElementById('btn'); //获取按钮
+        var proName = document.getElementById('proName'); //项目维度
+
+
+        btn.onclick = function () {
+            var fd = new FormData(form);
+            var xhr = new XMLHttpRequest();
+            xhr.open("post", '/n_service/no2/api/uploadFiles');
+            xhr.send(fd);
+        }
+    </script>
+</body>
+
+</html>
