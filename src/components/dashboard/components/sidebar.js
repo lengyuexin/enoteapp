@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { Sidebar, Avatar, UL, LI, } from '../style'
-
 export default function () {
 
 
     const hash = window.location.hash;
     const isArticlePage = hash.includes("/dashboard/article");
     const isSelfPage = hash.includes("/dashboard/self");
+    const isWaterfallPage = hash.includes("/dashboard/waterfall");
 
     const userInfo=window.localStorage.getItem("userInfo")
     const {name,avatar}=JSON.parse(userInfo)
@@ -31,6 +31,12 @@ export default function () {
                     <Link to="/dashboard/article">
                         <i className="iconfont icon-QWcharts-zongxiangmushu"></i>
                         <span>文章编写</span>
+                    </Link>
+                </LI>
+                <LI className={isWaterfallPage && "cur"} >
+                    <Link to={`/dashboard/waterfall`}>
+                        <i className="iconfont icon-buju"></i>
+                        <span>签到打卡</span>
                     </Link>
                 </LI>
 

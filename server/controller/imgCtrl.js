@@ -8,7 +8,7 @@ const { error } = require('../utils/response');
 
 
 //图片上传
-router.post(`${CONTEXT}/api/uploadFiles`, async (ctx) => {
+router.post(`/api/uploadFiles`, async (ctx) => {
 
     try {
         upload(ctx);

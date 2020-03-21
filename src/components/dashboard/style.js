@@ -164,6 +164,22 @@ export const Main = styled.div`
  box-sizing:border-box;
  /* padding-left:24px; */
  padding-right:-18px;
+
+ &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+&::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 10px;
+}
+
+&::-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 10px;
+}
+
 `
 //dashboard-顶部导航右侧个人中心菜单
 export const SelfNavMenu = styled.div`
@@ -435,4 +451,40 @@ export const InputWarp = styled.div`
 
 
 
+`
+
+
+
+
+
+
+
+//dashboard-self 个人信息显示 修改确认按钮
+
+export const BtnOK = styled.span`
+  position:absolute;
+  left:40%;
+  bottom:30px;
+  display:inline-block;
+  width:120px;
+  height:40px;
+  line-height:40px;
+  text-align:center;
+  background:skyblue;
+  margin-left:-80px;
+  cursor:pointer;
+
+`
+export const BtnNO = styled.span`
+  position:absolute;
+  left:60%;
+  bottom:30px;
+  display:inline-block;
+  width:120px;
+  height:40px;
+  line-height:40px;
+  text-align:center;
+  background:#ddd;
+  margin-left:-20px;
+  cursor:pointer;
 `

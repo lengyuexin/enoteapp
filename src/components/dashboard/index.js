@@ -7,6 +7,7 @@ import { actionCreators } from './store'
 import { enoteUrl } from '../../config'
 import Article from './components/article'
 import Self from './components/self'
+import Waterfall from './components/waterfall'
 function Dashboard({
     show,
     setShow,
@@ -76,6 +77,7 @@ function Dashboard({
                             />
                         </Route>
                         <Route path="/dashboard/self" component={Self} />
+                        <Route path="/dashboard/waterfall" component={Waterfall} />
                     </Switch>
                 </Router>
 

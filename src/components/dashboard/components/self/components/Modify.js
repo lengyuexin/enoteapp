@@ -2,13 +2,14 @@ import React, { memo } from 'react';
 
 //信息修改
 function Modify({
-    children
+    children,
+    style
 }) {
 
     return <div style={{
         position: "fixed",
-        width: "480px",
-        height: "320px",
+        width: `480px`,
+        height: `320px`,
         left: 0,
         top: 0,
         bottom: 0,
