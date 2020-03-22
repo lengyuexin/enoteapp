@@ -129,7 +129,16 @@ export const Avatar = styled.div`
   text-align: center;
   box-sizing:border-box;
   margin-top:16px;
+  position:relative;
 
+  input[type=file]{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 44px;
+    top: 10px;
+    opacity: 0;
+  }
   img{
     width:100px;
     height:100px;
@@ -475,6 +484,8 @@ export const BtnOK = styled.span`
   cursor:pointer;
 
 `
+
+//dashboard-self 个人信息显示 修改取消按钮
 export const BtnNO = styled.span`
   position:absolute;
   left:60%;

@@ -8,6 +8,7 @@ import { enoteUrl } from '../../config'
 import Article from './components/article'
 import Self from './components/self'
 import Waterfall from './components/waterfall'
+import MyArticle from './components/myArticle'
 function Dashboard({
     show,
     setShow,
@@ -78,6 +79,7 @@ function Dashboard({
                         </Route>
                         <Route path="/dashboard/self" component={Self} />
                         <Route path="/dashboard/waterfall" component={Waterfall} />
+                        <Route path="/dashboard/myArticle" component={MyArticle} />
                     </Switch>
                 </Router>
 

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import { Sidebar, Avatar, UL, LI, } from '../style'
+import { nodeApiUrl, javaApiUrl } from '../../../config'
+import axios from 'axios'
 export default function () {
 
 
@@ -8,17 +10,71 @@ export default function () {
     const isArticlePage = hash.includes("/dashboard/article");
     const isSelfPage = hash.includes("/dashboard/self");
     const isWaterfallPage = hash.includes("/dashboard/waterfall");
+    const ismyArticlePage = hash.includes("/dashboard/myArticle");
 
-    const userInfo=window.localStorage.getItem("userInfo")
-    const {name,avatar}=JSON.parse(userInfo)
+    const [selfName, setSelfName] = useState("");
+    const [selfAvatar, setSelfAvatar] = useState("");
+    const [pwd, setSelfPwd] = useState("");
+
+    useEffect(() => {
+        _render()
+    }, [selfAvatar, selfName, pwd])
+
+
+    const _render = () => {
+        const userInfo = window.localStorage.getItem("userInfo")
+        const { name, avatar, password } = JSON.parse(userInfo);
+
+        setSelfName(name)
+        setSelfPwd(password)
+        setSelfAvatar(avatar)
+    }
 
     return (
         <Sidebar>
 
             <Avatar>
-                <img src={avatar} alt="" />
+
+                <img src={`${nodeApiUrl}${selfAvatar}`} alt="" />
+                <form id="avatar-form">
+                    <input type="file" name="file" onChange={() => {
+
+                        try {
+                            const fd = new FormData(document.getElementById("avatar-form"));
+                            const xhr = new XMLHttpRequest();
+                            xhr.open("post", `${nodeApiUrl}/api/uploadFiles`);
+                            xhr.send(fd);
+                            xhr.onload = () => {
+                                const src = JSON.parse(xhr.responseText).data;
+                                axios.post(`${javaApiUrl}/api/updateAvatar`,
+                                    { name: selfName, avatar: `/img/${src}` }).then(() => {
+                                        axios.post(`${javaApiUrl}/api/login`,
+                                            { name: selfName, password: pwd }).then(res => {
+                                                window.localStorage.setItem("userInfo", JSON.stringify(res.data.data));
+                                                _render();
+                                                alert("上传成功")
+                                            })
+                                    }).catch(err => {
+                                        console.error(err)
+                                        alert("上传失败")
+                                    })
+
+
+
+                            }
+
+
+
+
+                        } catch (error) {
+                            console.error(error)
+                        }
+
+                    }} />
+                </form>
+
                 <br />
-                <span>{name}</span>
+                <span>{selfName}</span>
             </Avatar>
             <UL>
                 <LI className={isSelfPage && "cur"}>
@@ -37,6 +93,12 @@ export default function () {
                     <Link to={`/dashboard/waterfall`}>
                         <i className="iconfont icon-buju"></i>
                         <span>签到打卡</span>
+                    </Link>
+                </LI>
+                <LI className={ismyArticlePage && "cur"} >
+                    <Link to={`/dashboard/myArticle`}>
+                        <i className="iconfont icon-wendang"></i>
+                        <span>我的文章</span>
                     </Link>
                 </LI>
 

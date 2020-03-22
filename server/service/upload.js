@@ -61,7 +61,7 @@ exports.upload = (ctx) => {
     if (filterPic) {
         ok(ctx, 405, message = `存在不支持的图片格式${Array.from(new Set(rejectExtname))},已过滤`);
     } else {
-        ok(ctx, 200, "上传成功", "");
+        ok(ctx, 200, "上传成功", ctx.request.files.file.name);
     }
 
 }

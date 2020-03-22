@@ -3,7 +3,9 @@ import { fromJS } from 'immutable'
 const defaultState = fromJS({
     show: false,
     html: "",//编辑器md转html
-    text: ""//原始md格式
+    text: ``
+
+    
 
 })
 export default (state = defaultState, action) => {
