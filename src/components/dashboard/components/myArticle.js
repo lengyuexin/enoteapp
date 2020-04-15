@@ -34,7 +34,11 @@ function MyArticle() {
         list.map((item, key) => {
           return (
             <div key={key} style={{ display: "flex", justifyContent: "space-between" }}>
-              <div style={{ height: "60px", }} >
+              <div style={{ height: "60px", cursor:"pointer"}} 
+              onClick={()=>{
+                window.location.href=`#/dashboard/preview/${item.id}`
+              }}
+              >
                 {item.title}
               </div>
               <div style={{ height: "60px" }} >

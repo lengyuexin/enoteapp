@@ -3,7 +3,7 @@ import { Encrypt } from '../../../common'
 import { debounce } from 'light-func'
 import axios from 'axios';
 
-import { javaApiUrl, enoteUrl } from '../../../config'
+import { javaApiUrl,  } from '../../../config'
 
 
 //检验/登录逻辑
@@ -30,7 +30,7 @@ const handleLogin = (name, password) => {
                 //存储用户信息
                 window.localStorage.setItem("userInfo",JSON.stringify(userInfo));
                 //跳转到enote首页
-                window.location.href = enoteUrl;
+                window.location.href = '#/dashboard/article';
             }else{
                 alert("用户名或密码错误");
                 window.location.href = "#/login";
@@ -59,7 +59,9 @@ function LoginBtn({ name, password, }) {
         }
     } else {
         document.onkeydown = (e) => {
-
+            if (e.keyCode === 13) {
+                
+            }
         }
     }
 

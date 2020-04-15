@@ -15,6 +15,7 @@ function UsernameInput({ name, setName }) {
                     value={name}
                     placeholder='Username'
                     onChange={(e) => { setName(e.target.value) }}
+                    autocomplete="off"
                 />
 
             </div>

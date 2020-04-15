@@ -9,6 +9,11 @@ import Article from './components/article'
 import Self from './components/self'
 import Waterfall from './components/waterfall'
 import MyArticle from './components/myArticle'
+import Help from './components/help'
+import Preview from './components/preview'
+import Joke from './components/joke' 
+import Soup from './components/soup' 
+
 function Dashboard({
     show,
     setShow,
@@ -39,6 +44,9 @@ function Dashboard({
                     </NavItem>
                     <NavItem >
                         <span onClick={link("categories/晚安分享/")}>晚安分享</span>
+                    </NavItem>
+                    <NavItem >
+                        <span onClick={link("categories/英语基础/")}>英语基础</span>
                     </NavItem>
                     <NavItem
                         onMouseEnter={() => { setShow(true) }}
@@ -80,6 +88,10 @@ function Dashboard({
                         <Route path="/dashboard/self" component={Self} />
                         <Route path="/dashboard/waterfall" component={Waterfall} />
                         <Route path="/dashboard/myArticle" component={MyArticle} />
+                        <Route path="/dashboard/help" component={Help} />
+                        <Route path="/dashboard/preview/:id" component={Preview} />
+                        <Route path="/dashboard/joke" component={Joke} />
+                        <Route path="/dashboard/soup" component={Soup} />
                     </Switch>
                 </Router>
 

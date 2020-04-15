@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 
 import { Container, InputWarp, Title, ResetText } from './style';
-import {nodeApiUrl} from '../../config'
+// import {nodeApiUrl} from '../../config'
 export default function () {
 
     const userInfo=window.localStorage.getItem("userInfo");
 
+   
     if(userInfo){
-        window.location.href=`${nodeApiUrl}/write`;
-        return
+        window.location.href=`#/dashboard/article`;
+        return null
     } 
 
 

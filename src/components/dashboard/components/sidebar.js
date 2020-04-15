@@ -11,6 +11,9 @@ export default function () {
     const isSelfPage = hash.includes("/dashboard/self");
     const isWaterfallPage = hash.includes("/dashboard/waterfall");
     const ismyArticlePage = hash.includes("/dashboard/myArticle");
+    const isHelpPage = hash.includes("/dashboard/help");
+    const isJokePage = hash.includes("/dashboard/joke");
+    const isSoupPage = hash.includes("/dashboard/soup");
 
     const [selfName, setSelfName] = useState("");
     const [selfAvatar, setSelfAvatar] = useState("");
@@ -101,7 +104,25 @@ export default function () {
                         <span>我的文章</span>
                     </Link>
                 </LI>
-
+                <LI className={isHelpPage && "cur"} >
+                    <Link to={`/dashboard/help`}>
+                        <i className="iconfont icon-ku"></i>
+                        <span>使用示例</span>
+                    </Link>
+                </LI>
+                <LI className={isJokePage && "cur"} >
+                    <Link to={`/dashboard/joke`}>
+                        <i className="iconfont icon-huangguan"></i>
+                        <span>开心一刻</span>
+                    </Link>
+                </LI>
+                <LI className={isSoupPage && "cur"} >
+                    <Link to={`/dashboard/soup`}>
+                        <i className="iconfont icon-SZDP-gongdanjieguofankui"></i>
+                        <span>剧毒鸡汤</span>
+                    </Link>
+                </LI>
+ 
             </UL>
         </Sidebar>
     )
