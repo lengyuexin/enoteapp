@@ -13,7 +13,7 @@ function PasswordInput({ password, setPWD }) {
                     placeholder='Password'
                     value={password}
                     onChange={(e) => { setPWD(e.target.value) }}
-                    autocomplete="off"
+                   
                 />
             </div>
         </label>
